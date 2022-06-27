@@ -7,5 +7,17 @@
 
 {{ post.body }}
 
+<br>
+<hr>
+
+{% if post.post_image %}
+
+{{ post.post_image }}
+<br>
+{{ post.post_image.url }}
+<br>
+<img src="{{ post.post_image.url }}" width="500">
+{% endif %}
+
 <br><br>
-<a href={% url 'home' %}>Powrót</a>
+<a href="{% url 'home' %}">  Powrót</a>
