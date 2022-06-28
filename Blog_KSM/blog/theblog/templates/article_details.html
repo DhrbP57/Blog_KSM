@@ -20,4 +20,20 @@
 {% endif %}
 
 <br><br>
+
+
+ {% for image in character_universe_list %}
+    {{post.title}}
+    <br>
+    {{image.post_title}}
+    <br>
+    ---------------------
+    <br>
+    {% if post.title == image.title %}
+        <img src="{{ image.post_images.url }}" width="500">
+    {% endif %}
+ {% endfor %}
+
+
+<br><br>
 <a href="{% url 'home' %}">  Powrót</a>
