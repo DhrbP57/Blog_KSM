@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+
+{% block content %}
  {% for post in object_list %}
         <img src="{{ post.post_images.url }}" width="500">
  {% endfor %}
-</body>
-</html>
+{% endblock%}

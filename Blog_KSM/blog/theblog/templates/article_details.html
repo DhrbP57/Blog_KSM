@@ -1,5 +1,7 @@
+{% extends "base.html" %}
 
 
+{% block content %}
 <h1>{{ post.title }}</h1>
 <small>Autor: {{ post.author.first_name }} {{ post.author.last_name }}</small><br>
 <hr>
@@ -11,24 +13,28 @@
 <hr>
 
 {% if post.post_image %}
-
-{{ post.post_image }}
-<br>
-{{ post.post_image.url }}
-<br>
-<img src="{{ post.post_image.url }}" width="500">
+    <!--
+    {{ post.post_image }}
+    <br>
+    {{ post.post_image.url }}
+    <br>
+    -->
+    <img src="{{ post.post_image.url }}" width="500">
 {% endif %}
 
 <br><br>
 
 
+
  {% for image in character_universe_list %}
+    <!--
     {{post.title}}
     <br>
     {{image.post_title}}
     <br>
     ---------------------
     <br>
+    -->
     {% if post.title == image.title %}
         <img src="{{ image.post_images.url }}" width="500">
     {% endif %}
@@ -37,3 +43,4 @@
 
 <br><br>
 <a href="{% url 'home' %}">  Powrót</a>
+{% endblock %}
