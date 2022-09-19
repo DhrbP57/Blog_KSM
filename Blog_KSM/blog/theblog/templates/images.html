@@ -2,7 +2,12 @@
 
 
 {% block content %}
- {% for post in object_list %}
-        <img src="{{ post.post_images.url }}" width="500">
- {% endfor %}
-{% endblock%}
+<ul>
+    {% for post in posts %}
+
+        <li><a href="{% url 'article-detail' post.id %}"> {{ post.title }} - {{ post.author.first_name }}
+            {{ post.author.last_name }}</a><br>
+        {{ post.body }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

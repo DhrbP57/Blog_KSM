@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Post, ImagePost
 
@@ -22,4 +22,13 @@ class ArticleDetailView(DetailView):
 class ImageView(ListView):
     model = ImagePost
     template_name = 'images.html'
+
+def blog_view(request):
+    posts = Post.objects.all()
+    return render(request, 'home.html', {'posts':posts})
+
+def detail_view(request, id):
+    post = get_object_or_404(Post, id=id)
+    photos = ImagePost.objects.filter(post=post)
+    return render(request, 'article_details.html', {'posts':post, 'photos':photos})
 
