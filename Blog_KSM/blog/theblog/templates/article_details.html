@@ -3,25 +3,24 @@
 
 {% block content %}
 <h1>{{ posts.title }}</h1>
-<small>Autor: {{ posts.author.first_name }} {{ posts.author.last_name }}</small><br>
+<!--
+<small>Autor: {{ posts.author.first_name }} {{ posts.author.last_name }}</small><br>-->
 <hr>
 <br>
 
 {{ posts.body|safe }}
 
 <br>
-<hr>
 
+<!--
 {% if posts.image %}
-    <!--
     {{ post.post_image }}
     <br>
     {{ post.post_image.url }}
     <br>
-    -->
     <img src="{{ posts.image.url }}" width="500">
 {% endif %}
-
+-->
 <br><br>
 
 
@@ -30,44 +29,28 @@
     <img src="{{ p.image.url }}" width="500">
 {% endfor %}
 -->
-
-<!-- Carousel wrapper -->
-<!--Carousel Wrapper-->
-<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-    {% for p in photos %}
-      <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
-    {% endfor %}
-    </ol>
-    <!--/.Indicators-->
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
       {% for p in photos %}
-      <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-        <img class="d-block w-100" src="{{p.image.url}}"
-          alt="First slide">
-      </div>
-      {% endfor %}
-      <!--/First slide-->
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}" aria-current="true" aria-label="Slide 1"></button>
+    {% endfor %}
+
   </div>
+  <div class="carousel-inner">
+      {% for p in photos %}
+    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+      <img src="{{p.image.url}}" class="d-block w-100" alt="asf">
+    </div>
+      {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<!-- Carousel wrapper -->
-
-
-
-
-<br><br>
-<a href="{% url 'home' %}">  Powrót</a>
+<br>
 {% endblock %}

@@ -2,32 +2,60 @@
 <html>
     <head>
         <title>KSM</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <style>
+            .container.main {
+                margin-top:30px;
+                // background-color:red
+
+            }
+
+.navbar-brand {
+    padding-left: 20px;
+  letter-spacing: 3px;
+  color: #c24244;
+}
+.navbar-toggler{
+    margin-right: 20px;
+}
+        </style>
 
     </head>
 
     <body>
-    <div class="container mt-4">
 
-    <!-- NAVBAR -->
-    <nav class="nav nav-pills flex-column flex-sm-row">
-        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="#">Disabled</a>
-    </nav>
-    <!-- NAVBAR -->
 
+    <!-- Navbar -->
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <a href="#" class="navbar-brand">KŚM</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Główna</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">O mnie</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Osiągnięcia</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Navbar -->
+
+<div class="container main">
     {% block content %}{% endblock%}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     </div>
     </body>
 </html>
