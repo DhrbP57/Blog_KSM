@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     #dodanie zainstalowanej aplikacji
     'theblog',
+    #text editor
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
