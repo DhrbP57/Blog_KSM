@@ -23,6 +23,15 @@ class ImageView(ListView):
     model = ImagePost
     template_name = 'images.html'
 
+def AboutView(request):
+    return render(request, 'about.html')
+def ContactView(request):
+    return render(request, 'contact.html')
+def AchievementsView(request):
+    return render(request, 'achievements.html')
+
+
+
 def blog_view(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'posts':posts})

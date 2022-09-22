@@ -2,17 +2,20 @@
 
 
 {% block content %}
+
+<h1>About</h1>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
-       {% for image in object_list %}
+      {% for p in photos %}
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}" aria-current="true" aria-label="Slide 1"></button>
     {% endfor %}
 
-     </div>
+  </div>
   <div class="carousel-inner">
-      {% for image in object_list %}
+      {% for p in photos %}
     <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-      <img src="{{image.image.url}}" class="d-block w-100" alt="asf">
+      <img src="{{p.image.url}}" class="d-block w-100" alt="asf">
     </div>
       {% endfor %}
   </div>
@@ -25,11 +28,5 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
-    <!--
-    {% for image in object_list %}
-        <img src="{{image.image.url}}">
-    {% endfor %}
-    -->
-
+<br>
 {% endblock %}
